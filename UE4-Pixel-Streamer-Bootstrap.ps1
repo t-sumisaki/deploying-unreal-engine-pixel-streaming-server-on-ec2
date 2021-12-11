@@ -55,7 +55,7 @@ $trigger = New-ScheduledTaskTrigger -AtStartup
 Register-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -TaskName "UE4PixelStreamer-Project-Launch" -Description "UE4PixelStreamer-Project-Launch"
 
 $principal = New-ScheduledTaskPrincipal -UserID "NT AUTHORITY\SYSTEM" -LogonType ServiceAccount -RunLevel Highest
-$action = New-ScheduledTaskAction -Execute "$scriptPath\runAWS_WithTURN.bat"
+$action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-Command $scriptPath\Start_WithTURN_SignallingServer.ps1"
 $trigger = New-ScheduledTaskTrigger -AtStartup
 Register-ScheduledTask -Action $action -Principal $principal -Trigger $trigger -TaskName "UE4PixelStreamer-WebServer-Launch" -Description "UE4PixelStreamer-WebServer-Launch"
 
