@@ -25,8 +25,8 @@ if(!(Test-Path -Path $basePath )){
 }
 
 Write-Output "Installing Node.js"
-Invoke-WebRequest -Uri "https://nodejs.org/dist/v12.8.1/node-v12.8.1-x64.msi" -OutFile "$basePath\node-v12.8.1-x64.msi"
-Start-Process -FilePath "$basePath\node-v12.8.1-x64.msi" -ArgumentList "/quiet" -Wait
+Invoke-WebRequest -Uri "https://nodejs.org/dist/v14.17.6/node-v14.17.6-x64.msi" -OutFile "$basePath\node-v14.17.6-x64.msi"
+Start-Process -FilePath "$basePath\node-v14.17.6-x64.msi" -ArgumentList "/quiet" -Wait
 $env:Path += ";C:\Program Files\nodejs\;C:\Users\Administrator\AppData\Roaming\npm"
 Write-Output "Node.js Installed"
 
